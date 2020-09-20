@@ -1,0 +1,57 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+
+$body-font-family: 'Avenir Book', serif;
+$heading-font-family: 'didot', serif;
+
+$headings: (
+  'h2': (
+    'size': 6.25rem, // 100px
+    'line-height': 12rem, // 192px
+    'font-family': $heading-font-family
+  ),
+  'h3': (
+    'size': 3.75rem, // 60px
+    'line-height': 4.5rem, // 72px
+    'font-family': $heading-font-family
+  ),
+  'h4': (
+    'size': 3.75rem, // 60px
+    'line-height': 5rem, // 88px
+    'font-family': $heading-font-family
+  ),
+  'h5': (
+    'size': 3.125rem, // 50px
+    'line-height': 4rem, // 64px
+    'font-family': $heading-font-family
+  ),
+  'subtitle-1': (
+    'size': 1.5rem, // 24px
+    'line-height': 2rem // 30px
+  ),
+  'body-1': (
+    'size': 1.25rem, // 20px
+    'line-height': 1.625rem // 26px
+  ),
+  'body-2': (
+    'size': 1.125rem, // 20px
+    'line-height': 1rem // 30px
+  ),
+);
+
+
+
+// $grid-breakpoints:
+//   (
+//     'xs': 0,
+//     'sm': 600px,
+//     'md': 960px,
+//     'lg': 1280px - 16px,
+//     'xl': 1920px - 16px
+//   ),
+// );
+$container-max-widths: () !default;
+$container-max-widths: (
+  'xl': 1640px,
+);
+
+@import '~vuetify/src/styles/styles.sass';

@@ -1,0 +1,44 @@
+// $body-font-family: 'Avenir Book', serif;
+// $heading-font-family: 'didot', serif;
+
+.v-application .v-main, .v-application .v-dialog {
+  .title-regular {
+    font-family: 'didot Regular' !important;
+  }
+  .title-bold {
+    font-family: 'Didot Bold' !important;
+  }
+  .font-light {
+    font-family: 'Avenir Light' !important;
+  }
+  .font-heavy {
+    font-family: 'Avenir Heavy' !important;
+  }
+  .font-black {
+    letter-spacing: 0.1rem !important;
+    font-family: 'Avenir Black' !important;
+  }
+  .font-medium {
+    font-family: 'Avenir Medium' !important; 
+  }
+  .font-roman {
+    font-family: 'Avenir Roman' !important; 
+  }
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.v-btn .v-btn__content{
+  font-family: 'Avenir Heavy' !important;
+  letter-spacing: 0.1rem !important;
+}
+
+.v-btn > .v-btn__content .v-icon {
+  margin-bottom: -0.1rem !important;
+}
+
+.v-btn--contained > .v-btn__content .v-icon {
+  margin-bottom: -0.1rem !important;
+}
