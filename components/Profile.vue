@@ -23,7 +23,7 @@
               |  SEE ACHIVEMENTS
               v-icon.text-body-1(right) mdi-arrow-right
         v-col(cols="12", sm="5")
-           v-img(src="/images/profile-pic.png")
+          v-img(:src="require('~/assets/images/profile-pic.png')")
 </template>
 
 <style lang="scss">

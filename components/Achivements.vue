@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    div#MidBanner
+    div#MidBanner(:style="{ 'background-image': `url(${require('~/assets/images/middle-banner.png')})` }")
       v-container
         .mini-inner-container.text-center
           .text-h5.white--text.mb-7.mb-md-14.title-regular Want to sell your property in a most efficient way?
@@ -19,13 +19,16 @@
           .font-black.text-subtitle-1.text-uppercase Achivements
           v-row
             v-col(cols="12", sm="4")
-              .text-h2.primary--text.title-bold 30
-              .text-subtitle-1.font-roman Properties have been sold
+              .achivement--text.text-h2.title-bold
+                span.primary--text 100
+              .text-subtitle-1.font-roman Properties transacted
             v-col(cols="12", sm="4")
-              .text-h2.primary--text.title-bold TOP
-              .text-subtitle-1.font-roman Achiever in Sep, Oct, and Dec 2019
+              .achivement--text.text-h2.title-bold
+                span.primary--text TOP
+              .text-subtitle-1.font-roman TOP resale team in 2015, 2016 , 2017 , 2018 , 2019
             v-col(cols="12", sm="4")
-              .text-h2.primary--text.title-bold 5
+              .achivement--text.text-h2.title-bold
+                span.primary--text 5
               .text-subtitle-1.font-roman Years of experience
     div#Needs
       v-container
@@ -56,7 +59,7 @@
                     @click="showDialog(index)",
                   )
                     div.needs-icon-image
-                      img(:src="'svg/'+ need.image")
+                      img(:src="require(`~/assets/svg/${need.image}`)")
                     .needs_description.text-subtitle-1.font-roman {{ need.title }}
 
     v-dialog(
@@ -73,7 +76,7 @@
           template(v-slot:default="")
             v-row.text-center.text-md-left
               v-col.py-0.py-md-3(cols="12", md="3")
-                img(:src="'svg/'+ need.image")
+                img(:src="require(`~/assets/svg/${need.image}`)")
               v-col(cols="12", md="9")
                 .font-black.text-subtitle-1 {{ need.title }}
                 .text-body-1.text-left {{ need.description }}
@@ -160,9 +163,17 @@ export default {
   #Achivements {
     background-color: #F7F7F7;
     padding: 7.5% 0 6%;
+
+    .achivement--text {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      span {
+        display: block;
+        height: 6.25rem;
+      }
+    }
   }
  #MidBanner {
-    background-image: url('/images/middle-banner.png');
     background-size: cover;
     padding: 7.5% 0;
   }

@@ -1,18 +1,19 @@
 <template lang="pug">
   div#MainPage
     v-container.fixed-element
-      img.logo(src="/images/logo.png")
+      img.logo(:src="require('~/assets/images/logo.svg')")
       span.text-body-1.bold.contact.white--text.font-heavy +65 9169 6009
       div.controls
         .line.mr-3.d-inline-block(
           v-for='(need, index) in slides',
-          :key="'MainCarouselControl' + index",
           :class="{ active: index === value }",
+          :key="'MainCarouselControl' + index",
         )
     v-carousel(
       hide-delimiters,
       cycle,
-      interval="800000",
+      interval="15000",
+      :show-arrows='false',
       :value="value",
       @change="value = $event",
     )
@@ -21,7 +22,7 @@
           div.carousel.h-100
             .overlay
             .carousel-background(
-              :style="{ 'background-image': 'url(' + slide.image + ')' }",
+              :style="{ 'background-image': 'url(' + require(`~/assets/images/${slide.image}`) + ')' }",
             )
             v-container.h-100
               v-row.h-100(no-gutters)
@@ -46,16 +47,16 @@ export default {
   data: () => ({
     value: 0,
     slides: [{
-      image: '/images/banner1.png',
+      image: 'banner1.png',
       title: 'Find your next perfect place to live',
       description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.',
       showLink: true,
     }, {
-      image: '/images/banner1.png',
+      image: 'banner1.png',
       title: 'Find your next perfect place to live',
       description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.',
     }, {
-      image: '/images/banner1.png',
+      image: 'banner1.png',
       title: 'Find your next perfect place to live',
       description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.',
       showLink: true,
@@ -75,9 +76,9 @@ export default {
       top: 4rem;
       height: 100%;
       .logo {
-        width: 8rem;
-        @media(min-width: 600px) {
-          width: 10rem;
+        width: 4rem;
+        @media(min-width: 960px) {
+          width: 5rem;
         }
 
         position: absolute;
@@ -170,7 +171,7 @@ export default {
         }
 
         @media (orientation: landscape) and (max-width: 767px) {
-          margin-top: 5%;
+          margin-top: 7%;
         }
       }
     }

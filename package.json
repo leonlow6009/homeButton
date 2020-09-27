@@ -6,9 +6,13 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist -t true",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "nuxt": "^2.14.3",
     "vue-scrollto": "^2.18.2",
     "vue-virtual-scroller": "^1.0.10"

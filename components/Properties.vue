@@ -15,11 +15,11 @@
           cover,
           :aspect-ratio="aspectRatio",
           :min-width="imageWidth",
-          :src="item.image",
+          :src="require(`~/assets/images/Properties/${item.image}`)",
         )
           v-row.lightbox.white--text.fill-height(align='end', no-gutters)
             v-col.pa-0
-              .property_description.text-subtitle-1.font-black.white--text.mb-0 {{ item.title }}
+              .property_description.text-subtitle-1.font-black.mb-0 {{ item.title }}
 
 
 </template>
@@ -32,94 +32,94 @@ export default {
   data: () => ({
     items: [
       {
-        title: 'Blk 196 Punggol (High floor)',
-        description: 'In 1 viewings',
-        image: '/images/Properties/blk106dPgHiFlr/106D-Punggol-Field-Hougang-Punggol-Sengkang-Singapore.jpg',
+        title: 'Blk 106D Punggol (High floor)',
+        description: 'In 3 viewings',
+        image: 'blk106dPgHiFlr/106D-Punggol-Field-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
         title: 'Blk 106 Sergangoon North (Low floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk106SrgnNrthLowFlr/106-Serangoon-North.jpg',
+        description: 'In 2 months',
+        image: 'blk106SrgnNrthLowFlr/106-Serangoon-North.jpg',
       },
       {
         title: 'Blk 131 Ang Mo Kio (Low floor)',
-        description: 'In 2 viewings',
-        image: '/images/Properties/blk131AmkLowFlr/131-Ang-Mo-Kio-Avenue-3-Ang-Mo-Kio-Bishan-Thomson-Singapore.jpg',
+        description: 'In 1 month',
+        image: 'blk131AmkLowFlr/131-Ang-Mo-Kio-Avenue-3-Ang-Mo-Kio-Bishan-Thomson-Singapore.jpg',
       },
       {
-        title: 'Blk 157C Seng Keng (High floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk157cSKHiFlr/157C-Rivervale-Crescent-Hougang-Punggol-Sengkang-Singapore.jpg',
+        title: 'Blk 157C Sengkang (High floor)',
+        description: 'In 2 weeks',
+        image: 'blk157cSKHiFlr/157C-Rivervale-Crescent-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
         title: 'Blk 162B Punggol (High floor)',
         description: 'In 3 viewings',
-        image: '/images/Properties/blk172bPGHiFlr/172B-Edgedale-Plains-Hougang-Punggol-Sengkang-Singapore.jpg',
+        image: 'blk172bPGHiFlr/172B-Edgedale-Plains-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
-        title: 'Blk 205 Toa Pa Yoh (Mid floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk205TPYMidFlr/205-Toa-Payoh-North-Balestier.jpg',
+        title: 'Blk 205 Toa Payoh (Mid floor)',
+        description: 'In 1 viewings',
+        image: 'blk205TPYMidFlr/205-Toa-Payoh-North-Balestier.jpg',
       },
       {
         title: 'Blk 210 Jurong East (Mid floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk210JEMidFlr/210-Jurong-East-Street-21-Boon-Lay-Jurong-Tuas-Singapore.jpg',
+        description: 'In 1 month',
+        image: 'blk210JEMidFlr/210-Jurong-East-Street-21-Boon-Lay-Jurong-Tuas-Singapore.jpg',
       },
       {
         title: 'Blk 256D Punggol (High floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk256dPGHiFlr/256D-Sumang-Walk-Hougang-Punggol-Sengkang-Singapore.jpg',
+        description: 'In 1 viewing',
+        image: 'blk256dPGHiFlr/256D-Sumang-Walk-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
-        title: 'Blk 266C Seng Keng (High floor)',
+        title: 'Blk 266C Sengkang (High floor)',
         description: 'In 3 viewings',
-        image: '/images/Properties/blk266cSKHiFlr/266C-Compassvale-Bow-Hougang-Punggol-Sengkang-Singapore.jpg',
+        image: 'blk266cSKHiFlr/266C-Compassvale-Bow-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
         title: 'Blk 304 Sembawang (Mid floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk304SBWMidFlr/304-Canberra-Road-Sembawang.jpg',
+        description: 'In 2 months',
+        image: 'blk304SBWMidFlr/304-Canberra-Road-Sembawang.jpg',
       },
       {
         title: 'Blk 312 Jurong East (Mid floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk312JEMidFlr/312-Jurong-East-Street-32-Boon-Lay.jpg',
+        description: 'In 4 viewings',
+        image: 'blk312JEMidFlr/312-Jurong-East-Street-32-Boon-Lay.jpg',
       },
       {
         title: 'Blk 401 Sembawang (Low floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk401SBWLowFlr/401-Admiralty-Link-Sembawang-Yishun-Singapore.jpg',
+        description: 'In 1 month',
+        image: 'blk401SBWLowFlr/401-Admiralty-Link-Sembawang-Yishun-Singapore.jpg',
       },
       {
         title: 'Blk 423 Yishun (High floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk423YishunHiFlr/423-Yishun-Avenue-11-Sembawang-Yishun-Singapore.jpg',
+        description: 'In 2 months',
+        image: 'blk423YishunHiFlr/423-Yishun-Avenue-11-Sembawang-Yishun-Singapore.jpg',
       },
       {
         title: 'Blk 49 Whampoa (High floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk49WhampoaHiFlr/49-Whampoa-South-Balestier-Toa-Payoh-Singapore.jpg',
+        description: 'In 2 weeks',
+        image: 'blk49WhampoaHiFlr/49-Whampoa-South-Balestier-Toa-Payoh-Singapore.jpg',
       },
       {
         title: 'Blk 601 Ang Mo Kio (Mid floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk601AmkMidFlr/601-Ang-Mo-Kio-Avenue-5-Ang-Mo-Kio-Bishan-Thomson-Singapore.jpg',
+        description: 'In 2 months',
+        image: 'blk601AmkMidFlr/601-Ang-Mo-Kio-Avenue-5-Ang-Mo-Kio-Bishan-Thomson-Singapore.jpg',
       },
       {
         title: 'Blk 653B Jurong West (High floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk653bJWHiFlr/653B-Jurong-West-Street-61-Boon-Lay.jpg',
+        description: 'In 1 week',
+        image: 'blk653bJWHiFlr/653B-Jurong-West-Street-61-Boon-Lay.jpg',
       },
       {
         title: 'Blk 681 Race Course Road (Low floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk681RCLowFloor/681-Race-Course-Road-Farrer-Park-Serangoon-Rd-Singapore.jpg',
+        description: 'In 1 month',
+        image: 'blk681RCLowFloor/681-Race-Course-Road-Farrer-Park-Serangoon-Rd-Singapore.jpg',
       },
       {
         title: 'Blk 75 Whampoa (Low floor)',
-        description: 'In 3 viewings',
-        image: '/images/Properties/blk75WhampoaLowFlr/75-Whampoa-Drive-Balestier-Toa-Payoh-Singapore.jpg',
+        description: 'In 1 viewing',
+        image: 'blk75WhampoaLowFlr/75-Whampoa-Drive-Balestier-Toa-Payoh-Singapore.jpg',
       },
     ],
   }),
@@ -178,8 +178,9 @@ export default {
       }
 
       &_description {
-        padding-left: 3rem;
-        padding-bottom: 2rem;
+        background-color: #001E83;
+        color: white;
+        padding: 1.5rem 0 1.5rem 3rem;
       }
 
       &_item .col {

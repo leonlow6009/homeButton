@@ -42,3 +42,48 @@
 .v-btn--contained > .v-btn__content .v-icon {
   margin-bottom: -0.1rem !important;
 }
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('~assets/fonts/Avenir-Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir Light';
+  src: url('~assets/fonts/Avenir-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('~assets/fonts/Avenir-Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Black';
+  src: url('~assets/fonts/Avenir-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('~assets/fonts/Avenir-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir Roman';
+  src: url('~assets/fonts/Avenir-Roman.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'didot';
+  src: url('~assets/fonts/didot-medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Didot Bold';
+  src: url('~assets/fonts/didot-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'didot Regular';
+  src: url('~assets/fonts/didot-regular.ttf') format('truetype');
+}

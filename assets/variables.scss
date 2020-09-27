@@ -1,13 +1,13 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 
-$body-font-family: 'Avenir Book', serif;
-$heading-font-family: 'didot', serif;
+$body-font-family: 'Avenir Book';
+$heading-font-family: 'didot';
 
 $headings: (
   'h2': (
     'size': 6.25rem, // 100px
-    'line-height': 12rem, // 192px
-    'font-family': $heading-font-family
+    'line-height': 1.5, // 192px
+    'font-family': 'Didot Bold',
   ),
   'h3': (
     'size': 3.75rem, // 60px

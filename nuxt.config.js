@@ -1,5 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/homeButton/'
+  }
+} : {};
+
+const faviconPath = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/homeButton/' : '/';
+
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -11,6 +20,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'static',
+  ...routerBase,
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -24,7 +34,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: `${faviconPath}favicon32.ico` }
     ]
   },
   /*
@@ -84,5 +94,8 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  generate: {
+    fallback: '404.html'
   }
 }

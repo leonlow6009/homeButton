@@ -6,12 +6,20 @@
   .pa-0
     div.testimonial-designation.d-flex.align-center
       v-avatar(color="#EBEBEB")
-        v-icon(dark, large) mdi-account
+        img(
+          v-if="testimonial.image",
+          :src="require(`~/assets/images/Testimonial/${testimonial.image}`)",
+        )
+        v-icon(
+          dark,
+          large,
+          v-else,
+        ) mdi-account
       div.testimonial-name
         div.text-uppercase.text-subtitle-1.font-black {{ testimonial.name }}
         div.text-subtitle-1.font-medium {{ testimonial.occupation }}
     div.testimonial-content(v-on:scroll.passive="onScroll")
-      .text-subtitle-1(
+      .text-body-1(
         :class="{ 'multi-line': !showContent }",
         @click="showContent = true"
       ) {{ testimonial.content }}
@@ -75,17 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // .multi-line {
-  //   display: -webkit-box;
-  //   -webkit-box-orient: vertical;
-  //   overflow: hidden !important;
-  //   -webkit-line-clamp: 8;
-
-  //   @media(min-width: 960px) {
-  //     -webkit-line-clamp: 9;      
-  //   }
-  // }
-
   .testimonial {
     cursor: pointer;
     margin-right: 16px !important;
@@ -118,6 +115,9 @@ export default {
     .v-avatar {
       height: 6rem !important;
       min-width: 6rem !important;
+      img {
+        width: 100%;
+      }
       .mdi-account {
         font-size: 5rem !important;
       }

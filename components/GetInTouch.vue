@@ -1,6 +1,6 @@
 <template lang="pug">
 div#GetInTouch
-  .overlay
+  .overlay(:style="{ 'background-image': `url(${require('~/assets/images/get-in-touch.png')})` }")
   v-container
     v-row(no-gutter)
       v-col.d-none.d-sm-flex(cols="12", sm="5", md="6")
@@ -173,7 +173,6 @@ div#GetInTouch
       display: block;
     }
 
-    background-image: url('/images/get-in-touch.png');
     background-size: cover;
     position: absolute;
     left: 0;
