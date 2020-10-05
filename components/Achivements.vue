@@ -4,7 +4,10 @@
       v-container
         .mini-inner-container.text-center
           .text-h5.white--text.mb-7.mb-md-14.title-regular Want to sell your property in a most efficient way?
-          .text-body-1.white--text.mb-5.mb-md-9.font-light Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.
+          .text-body-1.white--text.mb-5.mb-md-9.font-light
+            | We are always taking advantage of ever changing technology!
+            b.bold.red--text.mx-1 FREE
+            | home tour videos, virtual 360 tour and online social media marketing.
           v-btn.text-body-1(
             text,
             v-scroll-to="{ el: '#GetInTouch', duration: 800 }",
@@ -19,15 +22,15 @@
           .font-black.text-subtitle-1.text-uppercase Achivements
           v-row
             v-col(cols="12", sm="4")
-              .achivement--text.text-h2.title-bold
-                span.primary--text 100
+              .achivement--text.text-h2
+                span.primary--text 100+
               .text-subtitle-1.font-roman Properties transacted
             v-col(cols="12", sm="4")
-              .achivement--text.text-h2.title-bold
+              .achivement--text.text-h2
                 span.primary--text TOP
-              .text-subtitle-1.font-roman TOP resale team in 2015, 2016 , 2017 , 2018 , 2019
+              .text-subtitle-1.font-roman TOP resale team in 2015, 2016, 2017, 2018, 2019
             v-col(cols="12", sm="4")
-              .achivement--text.text-h2.title-bold
+              .achivement--text.text-h2
                 span.primary--text 5
               .text-subtitle-1.font-roman Years of experience
     div#Needs
@@ -102,12 +105,16 @@ import { viewport } from '@/mixins';
 export default {
   mixins: [viewport],
   mounted() {
+    this.isIos = this.$device.isIos && this.$device.isMobile;
+    this.isAndroid = this.$device.isAndroid && this.$device.isMobile;
     this.isDesktop = this.$device.isDesktop;
   },
 
   data: () => ({
     value: 0,
     dialog: false,
+    isIos: false,
+    isAndroid: false,
     isDesktop: false,
     needs: [{
       image: 'cash-out.svg',
@@ -166,7 +173,7 @@ export default {
 
     .achivement--text {
       margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       span {
         display: block;
         height: 6.25rem;
@@ -179,7 +186,7 @@ export default {
   }
 
   #Needs {
-    padding: 2% 0;
+    padding: 5% 0;
 
     .needs_main-row {
       flex-direction: column-reverse;
@@ -234,7 +241,27 @@ export default {
       }
 
       &-image {
-        padding: 20px 30px 0 30px;
+        padding: 1.25rem 2.5rem 0;
+
+        @media(min-width: 425px) {
+          padding: 1.25rem 4.5rem 0;
+        }
+
+        @media(min-width: 600px) {
+          padding: 1.25rem 2.5rem 0;
+        }
+
+        @media(min-width: 768px) {
+          padding: 1.25rem 4.5rem 0;
+        }
+
+        @media(min-width: 960px) {
+          padding: 1.25rem 2.5rem 0;
+        }
+
+        @media(min-width: 1440px) {
+          padding: 1.25rem 3rem 0;
+        }
       }      
     }
   }

@@ -6,7 +6,7 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {};
 
-const faviconPath = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/homeButton/' : '/';
+const faviconPath = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/' : '/';
 
 
 export default {
@@ -20,18 +20,18 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'static',
-  ...routerBase,
+  // ...routerBase,
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: 'Home Button',
-    title: process.env.npm_package_name || '',
+    titleTemplate: '',
+    title: 'Home Button | Harness our network of agents to sell you flat fast at the best market rate',
     meta: [
       { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Hassle free property agent with reasonable commission rates in fast selling your HDB. Call 91696009 now or visit www.homebutton.co to harness our network of agents to sell you flat fast at the best market rate.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: `${faviconPath}favicon32.ico` }
@@ -42,13 +42,14 @@ export default {
   */
   css: [
   '@/assets/css/main.scss',
+  'vue-slick-carousel/dist/vue-slick-carousel.css',
+  'vue-slick-carousel/dist/vue-slick-carousel-theme.css',
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
-  plugins: [
-  ],
+  plugins: [{ src: './plugins/vue-slick-carousel.js' }],
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components

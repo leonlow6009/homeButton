@@ -30,7 +30,7 @@
 
     methods: {
       showWhatsappChat() {
-        const url = 'https://api.whatsapp.com/send?phone=6591696009';
+        const url = 'https://api.whatsapp.com/send?phone=6588389441';
         const win = window.open(url, '_blank');
         win.focus();
       },
@@ -41,7 +41,7 @@
 <style lang="scss" scoped>
   .chatbar {
     @media(min-width: 600px) {
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
     &_link {
       cursor: pointer;

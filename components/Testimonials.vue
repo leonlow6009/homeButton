@@ -3,15 +3,38 @@
     .text-center
       .text-subtitle-1.font-black.mb-6.text-uppercase Testimonials
 
-    .testimonials
-      testimonial(
-        v-for="(testimonial, key) in testimonials",
-        :activeIndex.sync="activeIndex",
-        :key="'testimonial'+ key",
-        :testimonialIndex="key",
-        :testimonial="testimonial",
-        :class="{ active: activeIndex === key }",
+    client-only.testimonials
+      VueSlickCarousel(
+        v-bind='slickOptions'
       )
+        div.testimonial(
+          v-for="(testimonial, key) in testimonials",
+          :key="'testimonial'+ key",
+        )
+          .pa-0
+            div.testimonial-designation.d-flex.align-center
+              v-avatar(color="#EBEBEB")
+                img(
+                  v-if="testimonial.image",
+                  :src="require(`~/assets/images/Testimonial/${testimonial.image}`)",
+                )
+                v-icon(
+                  dark,
+                  large,
+                  v-else,
+                ) mdi-account
+              div.testimonial-name
+                div.text-uppercase.text-subtitle-1.font-black {{ testimonial.name }}
+                div.text-subtitle-1.font-medium {{ testimonial.occupation }}
+            div.testimonial-content
+              .text-body-1 {{ testimonial.content }}
+        template(#prevArrow="arrowOption")
+          .custom-class
+            v-icon mdi-arrow-left
+
+        template(#nextArrow="arrowOption")
+          .custom-class
+            v-icon mdi-arrow-right
 
 </template>
 
@@ -19,11 +42,36 @@
 
 export default {
   data: () => ({
+    slickOptions: {
+      arrows: true,
+      center: true,
+      centerPadding: '50px',
+      dots: true,
+      infinite: true,
+      pauseOnFocus: true,
+      slidesToShow: 3,
+      speed: 1000,
+      speed: 500,
+      responsive: [
+        {
+          breakpoint: 959,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 599,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    },
     activeIndex: 0,
     testimonials: [{
-      name: 'joseph teh',
-      image: 'KenChelseaFamily.jpeg',
-      occupation: 'Art director',
+      name: 'Ganeshan',
+      image: 'Ganeshan.jpeg',
+      occupation: 'Safety Officer',
       content: 'I am glad to have made a switch to Leon after trying to sell my unit in the market for 3-4 months by our previous agent. At our first meet up, he brought along a buyer and manage to seal the deal for us. His network of clients and agents really impressed us.',
     }, {
       name: 'Syafiq',
@@ -39,12 +87,12 @@ export default {
       name: 'Genevieve tan',
       image: 'EddieFamily.jpg',
       occupation: 'Bank Manager',
-      content: 'I am glad to have made a switch to Leon after trying to sell my unit in the market for 3-4 months by our previous agent. At our first meet up, he brought along a buyer and manage to seal the deal for us. His network of clients and agents really impressed us.',
+      content: "My journey with Leon was really hassle free, I didn't had to do anything and the flat received 4 offers within 2 weeks! What I liked most about Leon is that he realy priorities our interest, instead of selling the flat when we receive our first offer - at a price higher than our base price, he pursaded us to reject it and assured a better deal if we gave him time, a week later another offer came in for an additional 20,000. I couldn't imagine selling my flat at this price if not for him.",
     }, {
       name: 'Thomas Lee',
       image: 'ThomasNorah.jpg',
       occupation: 'Software programmer',
-      content: "My journey with Leon was really hassle free, I didn't had to do anything and the flat received 4 offers within 2 weeks! What I liked most about Leon is that he realy priorities our interest, instead of selling the flat when we receive our first offer - at a price higher than our base price, he pursaded us to reject it and assured a better deal if we gave him time, a week later another offer came in for an additional 20,000. I couldn't imagine selling my flat at this price if not for him.",
+      content: "Leon is a dedicated agent, he was dedicated and understanding in helping me find the perfect home. We starting house hunting at Bedok, followed by Houngang and then finally Punggol. He bought me to over 20 different units, before I finally decided on the ideal one. The best part out of the deal, is he managed to push the price down by $30,000. Which is a great plus for me, if you're looking for someone to represent you - I receomend Leon.",
     }],
   }),
 };

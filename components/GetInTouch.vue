@@ -166,6 +166,10 @@ div#GetInTouch
   position: relative;
   background-color: #F7F7F7;
 
+  @media (max-width: 1279px) {
+    padding-bottom: 6rem;  
+  }
+
   .overlay {
     display: none;
 

@@ -3,20 +3,20 @@
     div.inner-container
       v-row.h-100(no-gutters)
         div
-          .text-h3.d-inline To give real service, you must add something cannot be bought or measured by money, and that is
-          .text-h3.d-inline.bold.primary--text {{ " sincerity " }}
+          .text-h3.d-inline Our vision is to build a great rapport with our clients by providing them guidance that are both
+          .text-h3.d-inline.bold.primary--text {{ " sincere " }}
           .text-h3.d-inline and
-          .text-h3.d-inline.bold.primary--text {{ " integrity" }}.
+          .text-h3.d-inline.bold.primary--text {{ " transparent" }}.
       v-row#ProfileDescription.h-100(no-gutters)
         v-col.my-auto(cols="12", sm="7")
           div.description
             .font-black.text-subtitle-1.text-uppercase.mb-5.mb-md-10.mt-7.mt-md-0 Profile
-            .text-body-1.mb-2.mb-md-4 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-            .text-body-1.mb-7.mb-md-14 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+            .text-body-1.mb-2.mb-md-4 I started my property journey in 2015. My main focus is in transacting residential properties. I've helped over hundreds of clients in transacting their properties.
+            .text-body-1.mb-7.mb-md-14 I am well verse with the process in buying and selling resale properties, always keeping up to date with the latest hdb rules & regulation. Contact me today if you have any doubts @ +65 8838-9441.
 
             v-btn.text-body-1.bold.ma-0.ml-n5(
               text,
-              v-scroll-to="{ el: '#GetInTouch', duration: 800 }",
+              v-scroll-to="{ el: '#Achivements', duration: 800 }",
               color="primary",
               :ripple="false",
             )

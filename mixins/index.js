@@ -1,4 +1,4 @@
-export const viewport = {
+  export const viewport = {
   data: () => ({
     viewWidth: null,
     viewHeight: null,

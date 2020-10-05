@@ -1,5 +1,5 @@
 @import './font.scss';
-
+@import './testimonial.scss';
 // 600px => 0
 // 768px => 29 82
 // 960px 
@@ -18,7 +18,7 @@ $base-color: #001E83;
 }
 
 html {
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     font-size: 12px !important;
   }
 
@@ -78,4 +78,23 @@ html {
   @media (min-width: 768px) {
     max-width: 85%;
   }
+}
+
+.chatbar {
+  .v-snack__wrapper {
+    margin-bottom: 7rem !important;
+  }
+}
+
+#Properties {
+  .slick-slide > div {
+    margin-right: 10px;
+  }  
+}
+
+
+#Testimonials {
+  .slick-slide > div {
+    margin-right: 1rem;
+  }  
 }

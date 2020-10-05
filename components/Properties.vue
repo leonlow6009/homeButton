@@ -4,22 +4,31 @@
       v-row.h-100(no-gutters)
         div
           .font-black.text-subtitle-1.text-uppercase.mb-3.mb-md-6 Properties
-          .body-1 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+          .body-1 Each and every property have it’s own selling point and challenges. With the right marketing strategy and network combined with our unique skill set, we are confident to sell for you - FAST and PROFITABLE!
+    client-only
+      VueSlickCarousel(
+        v-bind='slickOptions'
+      )
+        div.slide-item.property_item.mr-6(v-for="item in items")
+          div.property_banner.d-inline-block
+              div.font-black.text-h3 SOLD
+              div.font-black.text-h3.text-subtitle-1 {{ item.description }}
+          v-img.property_image(
+            cover,
+            :aspect-ratio="aspectRatio",
+            :src="require(`~/assets/images/Properties/${item.image}`)",
+          )
+            v-row.lightbox.white--text.fill-height(align='end', no-gutters)
+              v-col.pa-0
+                .property_description.text-subtitle-1.font-black.mb-0 {{ item.title }}
 
-    div.property_list
-      div.property_item.mr-6(v-for="item in items")
-        div.property_banner.d-inline-block
-            div.font-black.text-h3 SOLD
-            div.font-black.text-h3.text-subtitle-1 {{ item.description }}
-        v-img.property_image(
-          cover,
-          :aspect-ratio="aspectRatio",
-          :min-width="imageWidth",
-          :src="require(`~/assets/images/Properties/${item.image}`)",
-        )
-          v-row.lightbox.white--text.fill-height(align='end', no-gutters)
-            v-col.pa-0
-              .property_description.text-subtitle-1.font-black.mb-0 {{ item.title }}
+        template(#prevArrow="arrowOption")
+          .custom-class
+            v-icon mdi-arrow-left
+
+        template(#nextArrow="arrowOption")
+          .custom-class
+            v-icon mdi-arrow-right
 
 
 </template>
@@ -30,6 +39,32 @@ import { viewport } from '@/mixins';
 export default {
   mixins: [viewport],
   data: () => ({
+    slickOptions: {
+      arrows: true,
+      // autoplay: true,
+      autoplaySpeed: 3000,
+      dots: true,
+      infinite: true,
+      pauseOnFocus: true,
+      slidesToShow: 3,
+      speed: 1000,
+      speed: 500,
+      responsive: [
+        {
+          breakpoint: 1919,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            dots: false,
+          },
+        },
+      ],
+    },
     items: [
       {
         title: 'Blk 106D Punggol (High floor)',
@@ -147,6 +182,10 @@ export default {
 </script>
 
 <style lang="scss">
+  .slide-item {
+    outline: none !important;
+  }
+
   #Properties {
     margin-bottom: 64px;
 
@@ -154,16 +193,6 @@ export default {
       &_item {
         position: relative;
         padding-left: 0.5rem;
-      }
-
-      &_list {
-        display: flex;
-        flex-direction: row;
-        overflow-x: scroll;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
       }
 
       &_banner {
