@@ -31,7 +31,27 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Hassle free property agent with reasonable commission rates in fast selling your HDB. Call 91696009 now or visit www.homebutton.co to harness our network of agents to sell you flat fast at the best market rate.' }
+      { hid: 'description', name: 'description', content: 'Hassle free property agent with reasonable commission rates in fast selling your HDB. Call 91696009 now or visit www.homebutton.co to harness our network of agents to sell you flat fast at the best market rate.' },
+      {
+        property: 'og:url',
+        content: 'https://homebutton.co/'
+      },
+      {
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        property: 'og:title',
+        content: 'Harness our network of agents to sell you flat fast at the best market rate'
+      },
+      {
+        property: 'og:description',
+        content: 'Hassle free property agent with reasonable commission rates in fast selling your HDB. Call 91696009 now or visit www.homebutton.co to harness our network of agents to sell you flat fast at the best market rate.'
+      },
+      {
+        property: 'og:image',
+        content: `${faviconPath}fb_banner.png`
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: `${faviconPath}favicon32.ico` }

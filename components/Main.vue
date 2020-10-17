@@ -3,7 +3,10 @@
     v-container.fixed-element(v-resize="calculateContainerHeight")
       img.logo(ref="logo", :src="require('~/assets/images/logo.svg')")
       span.text-body-1.bold.contact.white--text.font-heavy +65 8838 9441
-      div.controls(ref="controls")
+      div.controls(
+        ref="controls",
+        :class="{ 'controls-light': !isDark }",
+      )
         .line.mr-3.d-inline-block(
           v-for='(need, index) in slides',
           :class="{ active: index === value }",
@@ -21,7 +24,7 @@
       v-carousel-item(v-for='(slide, index) in slides', :key="'MainCarousel'+ index")
         template(v-slot:default="")
           div.carousel
-            .overlay
+            .overlay(:class="{ 'overlay-light': !slide.dark }")
             .carousel-background(
               :style="[slide.styles, { 'background-image': 'url(' + require(`~/assets/images/${slide.image}`) + ')' }]",
             )
@@ -34,12 +37,16 @@
                 :style="{ height: minHeight }",
               )
                 v-col.carousel-content.h-100(cols="12", sm="6")
-                  div.content(ref="content", :style="[viewWidth < 426 ? slide.mobileContentStyle : {}]")
+                  div.content(
+                    ref="content",
+                    :class="{ 'carousel-content-light': !slide.dark }",
+                    :style="[viewWidth < 426 ? slide.mobileContentStyle : {}]",
+                  )
                     .text-h3.mb-2.mb-md-3.title-regular {{ slide.title }}
                     .text-body-1.mb-5.mb-md-10.font-light {{ slide.description }}
                     v-btn.text-body-1.ma-0.ml-n4(
                       text,
-                      color="white",
+                      :color="slide.dark ? 'white' : 'black'",
                       v-if="slide.showLink",
                       v-scroll-to="{ el: '#GetInTouch', duration: 800 }",
                       :ripple="false",
@@ -60,6 +67,17 @@ export default {
     resize_timeout: null,
     slides: [
       {
+        image: 'banner3.png',
+        mobileImage: 'banner3_M.png',
+        title: 'Housing is one of the most important housing asset we have',
+        description: 'Contact me for a non-obligation discussion on your property matters',
+        styles: { 'background-position': 'right' },
+        mobileStyle: { 'background-position': 'right' },
+        mobileContentStyle: { 'margin-top': '10rem' },
+        showLink: true,
+        dark: false,
+      },
+      {
         image: 'banner2.png',
         mobileImage: 'banner2_M.png',
         title: 'Owning a home is a keystone of wealth',
@@ -68,6 +86,7 @@ export default {
         mobileStyle: { 'background-position': 'right' },
         mobileContentStyle: { 'margin-top': '10rem' },
         showLink: true,
+        dark: true,
       },
       {
         image: 'banner1.png',
@@ -78,9 +97,17 @@ export default {
         mobileStyle: {},
         mobileContentStyle: {},
         showLink: true,
+        dark: true,
       },
     ]
   }),
+
+  computed: {
+    isDark() {
+      return this.slides[this.value].dark;
+    },
+  },
+
   mounted() {
     this.calculateContainerHeight();
   },
@@ -155,6 +182,16 @@ export default {
           }
         }
       }
+
+      .controls-light {
+        .line {
+          border-bottom: 2px solid black;
+
+          &.active {
+            border-bottom: 2px solid #777777;
+          }
+        }
+      }
     }
 
     .overlay {
@@ -165,6 +202,10 @@ export default {
       background: rgba(0, 0, 0, 0.7);
       z-index: 1;
 
+      &-light {
+        background: rgba(255, 255, 255, 0.7);
+      }
+
       @media (max-width: 600px) {
         right: 0%;
       }
@@ -174,14 +215,6 @@ export default {
       }
 
       right: 50%;
-    }
-
-    .v-carousel {
-      // height: 100vh !important;
-
-      .v-carousel__item {
-        // height: 100% !important;
-      }
     }
 
     .carousel {
@@ -237,6 +270,10 @@ export default {
         }
 
         margin-top: 5%;
+      }
+
+      &-content-light {
+        color: black !important;
       }
     }
   }
