@@ -87,7 +87,7 @@ export default {
         image: 'blk157cSKHiFlr/157C-Rivervale-Crescent-Hougang-Punggol-Sengkang-Singapore.jpg',
       },
       {
-        title: 'Blk 162B Punggol (High floor)',
+        title: 'Blk 172B Punggol (High floor)',
         description: 'In 3 viewings',
         image: 'blk172bPGHiFlr/172B-Edgedale-Plains-Hougang-Punggol-Sengkang-Singapore.jpg',
       },

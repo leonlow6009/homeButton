@@ -21,18 +21,14 @@
         div.inner-container
           .font-black.text-subtitle-1.text-uppercase Achivements
           v-row
-            v-col(cols="12", sm="4")
+            v-col(cols="12", sm="6")
               .achivement--text.text-h2
-                span.primary--text 100+
+                span.primary--text 300+
               .text-subtitle-1.font-roman Properties transacted
-            v-col(cols="12", sm="4")
+            v-col(cols="12", sm="6")
               .achivement--text.text-h2
                 span.primary--text TOP
-              .text-subtitle-1.font-roman TOP resale team in 2015, 2016, 2017, 2018, 2019
-            v-col(cols="12", sm="4")
-              .achivement--text.text-h2
-                span.primary--text 5
-              .text-subtitle-1.font-roman Years of experience
+              .text-subtitle-1.font-roman 6X Consecutive TOP sales team
     div#Needs
       v-container
         div.inner-container
@@ -100,7 +96,7 @@
 </template>
 
 <script>
-import { viewport } from '@/mixins';
+import { viewport } from "@/mixins";
 
 export default {
   mixins: [viewport],
@@ -116,44 +112,53 @@ export default {
     isIos: false,
     isAndroid: false,
     isDesktop: false,
-    needs: [{
-      image: 'cash-out.svg',
-      title: 'Cash out',
-      description: 'Stress free retirement , fully paid on the next property and achieve financial freedom.',
-    }, {
-      image: 'bigger-flat.svg',
-      title: 'Bigger flat',
-      description: 'Family planning to next ideal place like moving to closer to parents ($30,000 grant) or move to reputable school areas.',
-    }, {
-      image: 'condo-upgrade.svg',
-      title: 'Condo upgrade',
-      description: 'Status upgrade enjoy the condominium facilities to hold parties and events in own home vicinity.',
-    }, {
-      image: '2-properties.svg',
-      title: 'Own 2 properties',
-      description: 'Maximise investment for long term planning, leaving something behind for next generation with high capital appreciation.',
-    }, {
-      image: 'EC-upgrade.svg',
-      title: 'EC Upgrade',
-      description: 'Lower entry price 20-25% cheaper than private property, eligible for CPF housing grant and comes with condo facilities.',
-    }, {
-      image: 'passive-income.svg',
-      title: 'Passive income',
-      description: 'Early retirement with high rental yield, stable investment.',
-    }],
+    needs: [
+      {
+        image: "cash-out.svg",
+        title: "Cash out",
+        description:
+          "Stress free retirement , fully paid on the next property and achieve financial freedom."
+      },
+      {
+        image: "bigger-flat.svg",
+        title: "Bigger flat",
+        description:
+          "Family planning to next ideal place like moving to closer to parents ($30,000 grant) or move to reputable school areas."
+      },
+      {
+        image: "condo-upgrade.svg",
+        title: "Condo upgrade",
+        description:
+          "Status upgrade enjoy the condominium facilities to hold parties and events in own home vicinity."
+      },
+      {
+        image: "2-properties.svg",
+        title: "Own 2 properties",
+        description:
+          "Maximise investment for long term planning, leaving something behind for next generation with high capital appreciation."
+      },
+      {
+        image: "EC-upgrade.svg",
+        title: "EC Upgrade",
+        description:
+          "Lower entry price 20-25% cheaper than private property, eligible for CPF housing grant and comes with condo facilities."
+      },
+      {
+        image: "passive-income.svg",
+        title: "Passive income",
+        description:
+          "Early retirement with high rental yield, stable investment."
+      }
+    ]
   }),
 
   methods: {
     navigate(next) {
-      if (next && this.value === (this.needs.length - 1)) {
+      if (next && this.value === this.needs.length - 1) {
         this.value = 0;
-      }
-
-      else if (!next && this.value === 0) {
+      } else if (!next && this.value === 0) {
         this.value = this.needs.length - 1;
-      }
-
-      else {
+      } else {
         this.value = next ? this.value + 1 : this.value - 1;
       }
     },
@@ -161,179 +166,179 @@ export default {
     showDialog(index) {
       this.value = index;
       this.dialog = true;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-  #Achivements {
-    background-color: #F7F7F7;
-    padding: 7.5% 0 6%;
+#Achivements {
+  background-color: #f7f7f7;
+  padding: 7.5% 0 6%;
 
-    .achivement--text {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      span {
-        display: block;
-        height: 6.25rem;
-      }
+  .achivement--text {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    span {
+      display: block;
+      height: 6.25rem;
     }
   }
- #MidBanner {
-    background-size: cover;
-    padding: 7.5% 0;
+}
+#MidBanner {
+  background-size: cover;
+  padding: 7.5% 0;
+}
+
+#Needs {
+  padding: 5% 0;
+
+  .needs_main-row {
+    flex-direction: column-reverse;
   }
 
-  #Needs {
-    padding: 5% 0;
+  .needs_icons {
+    max-width: 100%;
+    margin: auto;
+  }
 
-    .needs_main-row {
-      flex-direction: column-reverse;
-    }
-
+  @media (min-width: 600px) {
     .needs_icons {
-      max-width: 100%;
+      max-width: 90%;
       margin: auto;
     }
+  }
 
-    @media(min-width: 600px) {
-      .needs_icons {
-        max-width: 90%;
-        margin: auto;
+  @media (min-width: 960px) {
+    .needs_icons {
+      max-width: 80%;
+    }
+    .needs_main-row {
+      flex-direction: row;
+    }
+  }
+
+  .needs_description {
+    @media (min-width: 960px) and (max-width: 1680px) {
+      font-size: 1.2rem !important;
+      line-height: 1.8rem !important;
+    }
+    min-height: 2.7em;
+  }
+
+  .needs-icon {
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:not(.needs-icon-desktop) {
+      box-shadow: 3px 8px 20px #0000001a;
+      border-radius: 16px;
+    }
+
+    &-desktop {
+      &:hover {
+        box-shadow: 5px 10px 30px #00000021;
+        border-radius: 28px;
       }
     }
 
-    @media(min-width: 960px) {
-      .needs_icons {
-        max-width: 80%;
-      }
-      .needs_main-row {
-        flex-direction: row;
-      }
-    }
+    &-image {
+      padding: 1.25rem 2.5rem 0;
 
-    .needs_description {
-      @media(min-width: 960px) and (max-width: 1680px){
-        font-size: 1.2rem !important;
-        line-height: 1.8rem !important;
-      }
-      min-height: 2.70em;
-    }
-
-    .needs-icon {
-      cursor: pointer;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      &:not(.needs-icon-desktop) {
-        box-shadow: 3px 8px 20px #0000001A;
-        border-radius: 16px;
+      @media (min-width: 425px) {
+        padding: 1.25rem 4.5rem 0;
       }
 
-      &-desktop {
-        &:hover {
-          box-shadow: 5px 10px 30px #00000021;
-          border-radius: 28px;
-        }
-      }
-
-      &-image {
+      @media (min-width: 600px) {
         padding: 1.25rem 2.5rem 0;
-
-        @media(min-width: 425px) {
-          padding: 1.25rem 4.5rem 0;
-        }
-
-        @media(min-width: 600px) {
-          padding: 1.25rem 2.5rem 0;
-        }
-
-        @media(min-width: 768px) {
-          padding: 1.25rem 4.5rem 0;
-        }
-
-        @media(min-width: 960px) {
-          padding: 1.25rem 2.5rem 0;
-        }
-
-        @media(min-width: 1440px) {
-          padding: 1.25rem 3rem 0;
-        }
-      }      
-    }
-  }
-
-  .needs-carousel {
-    background-color: white;
-    padding: 40px;
-    border-radius: 16px !important;
-
-    @media(min-width: 500px) {
-      padding: 60px;
-      max-width: 450px;
-    }
-
-    @media(max-width: 768px) and (orientation: landscape) {
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    @media(min-width: 960px) {
-      max-width: 640px;
-      padding: 3.5rem 5rem;
-    }
-
-    @media(min-width: 1281px) {
-      max-width: 856px;
-      padding: 3.5rem 5rem;
-    }
-
-    .v-carousel {
-      height: 240px !important;
-
-      @media(min-width: 960px) {
-        height: 140px !important;
       }
 
-      @media(min-width: 1281px) {
-        height: 160px !important;
-      }
-    }
-
-    .row {
-      color: #2F2F2F !important;
-
-      img {
-        width: 120px;
-
-        @media(min-width: 960px) {
-          padding-right: 1rem;
-        }
-
-        @media(min-width: 1281px) {
-          padding-right: 0;
-        }
-      }
-      .font-black {
-        padding-bottom: 1.15rem;
-      }
-    }
-
-    .controls {
-      .arrows {
-        color: #DBDBDB;
-
-        &:hover{
-          color: #001E83;
-        }
+      @media (min-width: 768px) {
+        padding: 1.25rem 4.5rem 0;
       }
 
-      .selector {
-        margin-right: 1.2rem;
+      @media (min-width: 960px) {
+        padding: 1.25rem 2.5rem 0;
+      }
+
+      @media (min-width: 1440px) {
+        padding: 1.25rem 3rem 0;
       }
     }
   }
+}
+
+.needs-carousel {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px !important;
+
+  @media (min-width: 500px) {
+    padding: 60px;
+    max-width: 450px;
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  @media (min-width: 960px) {
+    max-width: 640px;
+    padding: 3.5rem 5rem;
+  }
+
+  @media (min-width: 1281px) {
+    max-width: 856px;
+    padding: 3.5rem 5rem;
+  }
+
+  .v-carousel {
+    height: 240px !important;
+
+    @media (min-width: 960px) {
+      height: 140px !important;
+    }
+
+    @media (min-width: 1281px) {
+      height: 160px !important;
+    }
+  }
+
+  .row {
+    color: #2f2f2f !important;
+
+    img {
+      width: 120px;
+
+      @media (min-width: 960px) {
+        padding-right: 1rem;
+      }
+
+      @media (min-width: 1281px) {
+        padding-right: 0;
+      }
+    }
+    .font-black {
+      padding-bottom: 1.15rem;
+    }
+  }
+
+  .controls {
+    .arrows {
+      color: #dbdbdb;
+
+      &:hover {
+        color: #001e83;
+      }
+    }
+
+    .selector {
+      margin-right: 1.2rem;
+    }
+  }
+}
 </style>
